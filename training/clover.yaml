@@ -1,0 +1,14 @@
+# Clovr Fndr - Ultralytics YOLO Dataset Configuration
+# Usage: yolo train data=training/clover.yaml
+
+path: /home/x78163/clovr-fndr/datasets
+train: images/train
+val: images/val
+test: test
+
+nc: 4
+names:
+  0: three-leaf
+  1: four-leaf
+  2: five-leaf
+  3: six-plus-leaf

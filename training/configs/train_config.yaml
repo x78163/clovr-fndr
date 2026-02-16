@@ -1,0 +1,46 @@
+# Clovr Fndr - YOLO11 Training Hyperparameters
+# Override via CLI: python training/train.py --epochs 200 --batch 4
+
+model: yolo11s.pt
+imgsz: 1280
+epochs: 150
+batch: 8
+patience: 30
+device: 0
+save_period: 10
+project: /home/x78163/clovr-fndr/models/checkpoints
+name: clover
+exist_ok: true
+
+# Transfer learning
+freeze: 10
+
+# Optimizer
+optimizer: AdamW
+lr0: 0.01
+lrf: 0.001
+cos_lr: true
+weight_decay: 0.0005
+warmup_epochs: 5
+warmup_bias_lr: 0.1
+
+# Augmentation
+mosaic: 1.0
+mixup: 0.15
+copy_paste: 0.3
+degrees: 15.0
+translate: 0.2
+scale: 0.5
+shear: 2.0
+perspective: 0.0001
+flipud: 0.5
+fliplr: 0.5
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+close_mosaic: 20
+
+# Loss weights
+box: 7.5
+cls: 0.5
+dfl: 1.5

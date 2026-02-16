@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clovr-fndr"
+version = "0.1.0"
+description = "AI-powered 4-leaf clover detection app"
+requires-python = ">=3.12"
+dependencies = [
+    "ultralytics>=8.3.0",
+    "onnxruntime-gpu>=1.17",
+    "opencv-python-headless>=4.9",
+    "Pillow>=10.2",
+    "pyyaml>=6.0",
+    "matplotlib>=3.8",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+sam = [
+    "segment-anything>=1.0",
+    "torch>=2.1",
+    "torchvision>=0.16",
+]
+web = [
+    "Django>=5.0,<5.2",
+    "djangorestframework>=3.14",
+    "django-cors-headers>=4.3",
+    "django-filter>=23.5",
+    "dj-database-url>=2.1",
+    "python-dotenv>=1.0",
+    "gunicorn>=21.2",
+    "whitenoise>=6.6",
+]
+dev = [
+    "pytest>=7.4",
+    "pytest-django>=4.7",
+    "ruff>=0.3",
+    "ipython>=8.20",
+]
+
+[tool.setuptools.packages.find]
+include = ["training*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["backend"]
+DJANGO_SETTINGS_MODULE = "clovr_fndr.settings"
+pythonpath = ["backend"]

@@ -1,0 +1,21 @@
+# Clovr Fndr - Copy-Paste Augmentation Pipeline Config
+
+sam:
+  model_type: vit_b
+  checkpoint: models/sam_vit_b.pth
+
+cutout_extraction:
+  min_bbox_area: 400
+  padding: 10
+
+paste_params:
+  scale_range: [0.5, 1.5]
+  rotation_range: [-180, 180]
+  count_per_image: [1, 6]
+  overlap_threshold: 0.3
+
+output:
+  image_size: 1280
+  format: jpg
+  quality: 95
+  synthetic_count: 500
